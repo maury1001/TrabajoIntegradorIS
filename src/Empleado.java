@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package tpi;
 
-/**
- *
- * @author pity_
- */
-abstract class Empleado {
-
-    public Empleado() {
-        super ();
+public abstract class Empleado extends Persona {
+    
+    private int Legajo;
+    
+   public Empleado(String nombre,String apellido, int documento){
+      super(nombre,apellido,documento);
     }
     
 }

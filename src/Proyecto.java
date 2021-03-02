@@ -1,17 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package tpi;
 
 import java.util.Collection;
 import java.util.HashSet;
 
-/**
- *
- * @author pity_
- */
+
 public class Proyecto {
     
     private int id ;
@@ -20,16 +11,16 @@ public class Proyecto {
     
     public Proyecto(int id) {
         this.id = id;
-        this.lider = new Lider_Proyecto(); // ??? crear uno en blanco? o nulo
+    //    this.lider = new Lider_Proyecto(); // ??? crear uno en blanco? o nulo
         this.items = new HashSet () ;  // Coleccion vacia.
     }
     
     
     
-   public void asignar_lider (Desarrollador d) {
-       this.lider = d ;
+  // public void asignar_lider (Desarrollador d) {
+  //     this.lider = d ;
        
-   }
+  // }
    
    public void mostrar_items () {
        //IMPRIME TODOS LOS ITEMS EN EL PROYECTO.

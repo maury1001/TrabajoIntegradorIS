@@ -1,13 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author Mauricio
- */
-public class Persona {
+
+public abstract class Persona {  
     
+    protected int DNI;
+    protected String Apellido,Nombre;
+    
+    public Persona(String nombre,String apellido, int documento){
+      this.DNI = documento;
+      this.Apellido = apellido;
+      this.Nombre = nombre;
+    }
+    
+    public String getNombre(){
+     
+      return Nombre;
+    }
 }
