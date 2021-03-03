@@ -9,30 +9,27 @@
  *
  * @author pity_
  */
+abstract class Empleado extends Persona {
+    
+    private int legajo;
+    
 
-public abstract class Empleado extends Persona {
-    
-   private int legajo;
-    
-   public Empleado(String nombre,String apellido, int documento){
-      super(nombre,apellido,documento);
-    }
-    
-   // AGREGAR LEGAJO A CONSTRUCTOR.
-/*
-    public Empleado(int legajo) {
-        this.legajo = legajo;
+    //Sin setter.
+
+    public Empleado(String nombre, String apellido, int documento) {
+        super (nombre,apellido,documento) ;
+        
         
     }
- */  
+    
+    public int getLegajo() {
+        return legajo;
+    }
 
     public void setLegajo(int legajo) {
         this.legajo = legajo;
     }
-   
-    public int getLegajo() {
-        return legajo;
-    }
+    
     
     
     

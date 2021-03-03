@@ -4,21 +4,18 @@
  * and open the template in the editor.
  */
 
+/**
+ *
+ * @author pity_
+ */
 public class Desarrollador extends Empleado {
-    
 
-    public Desarrollador(String nombre, String apellido, int documento, int legajo) {
+    public Desarrollador(String nombre, String apellido, int documento) {
         super(nombre, apellido, documento);
-        super.setLegajo(legajo);
     }
 
-
-    @Override
-    public String toString () {
-        
-        return (this.getNombre() + " " + "Legajo Numero: " + this.getLegajo()) ;
+ 
     
-    }
     
     
 }

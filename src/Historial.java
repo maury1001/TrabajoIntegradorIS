@@ -5,6 +5,10 @@
  */
 
 
+/**
+ *
+ * @author pity_
+ */
 class Historial {
     
     public String historial;
@@ -13,7 +17,7 @@ class Historial {
         historial = "";
                 
     }
-    
+
     public String getHistorial() {
         return historial;
     }

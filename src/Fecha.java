@@ -5,6 +5,10 @@
  */
 
 
+/**
+ *
+ * @author pity_
+ */
 public class Fecha {
     
     public int dia;

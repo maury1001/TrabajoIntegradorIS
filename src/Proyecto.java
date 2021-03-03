@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 
 import java.util.HashSet;
@@ -12,27 +17,24 @@ public class Proyecto {
     
     public Proyecto(int id) {
         this.id = id;
-        this.lider = null ; // ??? crear uno en blanco? o nulo
+        this.lider = null; 
         this.items = new HashSet () ;  // Coleccion vacia.
     }
+    
+    public Proyecto (int id, Lider_Proyecto lid) {
+        this.id = id;
+        this.lider = lid; // Inicializa con un lider ya asignado.
+        this.items = new HashSet () ;  // Coleccion vacia.        
+    
+    }
+    
+    
     
     
     
    public void asignar_lider (Lider_Proyecto d) {
-       this.lider = d ;       
+       this.lider = d ;      
    }
-   
-   
-    public void asignar_equipo (Item i, Equipo e) {
-        
-        //COMPLETAR
-    
-    }
-    
-    public void Crear_Item () {
-        //COMPLETAR
-    }
-    
    
    //IMPRIME TODOS LOS ITEMS EN EL PROYECTO.
    public void mostrar_items () {      

@@ -38,6 +38,7 @@ public class Item {
         this.equipo_asignado = e;
     }
     
+    
     public void actualizarHistorial (String s) {
         // pedir estado actual y siguiente y hacer el string formato?
         this.historial.historial = (historial.getHistorial() + " " + s); 
