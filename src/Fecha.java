@@ -1,3 +1,9 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 
 public class Fecha {
     
@@ -61,5 +67,11 @@ public class Fecha {
                 diaCorrecto = (dia >=1 && dia <=31);
         }
         return diaCorrecto && mesCorrecto && anioCorrecto;
+    }
+    
+    @Override
+    public String toString () {
+        
+        return this.dia + "/" + this.mes + "/" + this.anio ;  
     }
 }

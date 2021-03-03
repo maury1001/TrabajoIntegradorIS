@@ -1,8 +1,14 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 
 public class Item {
     
-    private int id;
+    private static int id=1;
+    private int id_item ;
     public String descripcion ;
     private Empleado responsable_item;
     enum prioridad  {BAJA, MEDIA, ALTA }
@@ -10,16 +16,26 @@ public class Item {
     private Fecha fecha_limite ;
     private Historial historial ;
 //    private TipoItem tipo;            //Definir TIPO ITEM. GETTER Y SETTER, Y CONSTRUCTOR
+    private Equipo equipo_asignado ;
     
-    public Item() {
-    }
     
-    public Item(int id, String descripcion, Empleado responsable_item, Fecha fecha_limite) {
-        this.id = id; 
+    public Item (String descripcion, Empleado responsable_item, Fecha fecha_limite, Equipo e) {
+        this.id_item = this.id; 
+        this.id ++;
         this.descripcion = descripcion;
         this.responsable_item = responsable_item; // null??
         this.fecha_limite = fecha_limite;
         this.historial = new Historial ();
+        this.equipo_asignado = e;
+    }
+    
+    
+    public String ver_equipo () {  
+        return this.equipo_asignado.toString() ;
+    }
+    
+    public void asignar_equipo (Equipo e) {
+        this.equipo_asignado = e;
     }
     
     public void actualizarHistorial (String s) { // pedir estado actual y siguiente y hacer el string formato?
@@ -43,6 +59,8 @@ public class Item {
         //FALTA IMPLEMENTAR ESTADO.
     }
     */
+    
+    /////////////////  GETTERS Y SETTERS  //////////////////////////////
 
     public int getId() {
         return id;

@@ -1,13 +1,14 @@
 
-import java.util.Collection;
+
 import java.util.HashSet;
 
 
 public class Proyecto {
     
     private int id ;
-    public Empleado lider;
-    private HashSet items;
+    public Lider_Proyecto lider;
+    private HashSet <Item> items;
+    
     
     public Proyecto(int id) {
         this.id = id;
@@ -22,16 +23,27 @@ public class Proyecto {
        
   // }
    
-   public void mostrar_items () {
-       //IMPRIME TODOS LOS ITEMS EN EL PROYECTO.
-       this.items.toString();
-   }
    
     public void asignar_equipo (Item i, Equipo e) {
         
         //COMPLETAR
     
     }
+    
+    
+    
+    
+    
+   public void asignar_lider (Lider_Proyecto d) {
+       this.lider = d ;      
+   }
+   
+   //IMPRIME TODOS LOS ITEMS EN EL PROYECTO.
+   public void mostrar_items () {      
+       System.out.println (this.items.toString()); // HACER.. recorrer estructura.
+   }
+   
+
    
    
    ///////////////////////////////
@@ -54,14 +66,39 @@ public class Proyecto {
         this.id = id;
     }
 
-    public void setLider(Empleado lider) {
+    public void setLider(Lider_Proyecto lider) {
         this.lider = lider;
     }
 
     public void setItems(HashSet items) {
         this.items = items;
     }
+    
+    // Hash por ID de Proyecto.
+    @Override
+    public int hashCode() {   
+        return this.id;
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Proyecto other = (Proyecto) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        return true;
+    }
+    
+    
    
             
             
