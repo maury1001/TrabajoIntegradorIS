@@ -38,14 +38,17 @@ public class Item {
         this.equipo_asignado = e;
     }
     
-    public void actualizarHistorial (String s) { // pedir estado actual y siguiente y hacer el string formato?
-        this.historial.historial = (historial.getHistorial() + " " + s); // historial local pide el historial + un espacio + el string VALIDAR??  
+    public void actualizarHistorial (String s) {
+        // pedir estado actual y siguiente y hacer el string formato?
+        this.historial.historial = (historial.getHistorial() + " " + s); 
+        // historial local pide el historial + un espacio + el string VALIDAR??  
     
     }
     
     public void ver_historial ( ) {
-        System.out.println(this.historial); // hacer toString en CLASE Historial
-        // ESTADO, RESONSABLE, FECHA.
+        System.out.println(this.historial); 
+        // hacer toString en CLASE Historial
+        // ESTADO, RESPONSABLE, FECHA.
     }
     
     public void asignar_responsable (Empleado e) {

@@ -45,6 +45,8 @@ public class Equipo {
             return "El empleado no esta en el equipo." ;
     
     }
+    
+    
     // BUSCA Y RETORNA EL EMPLEADO, POR LEGAJO.   
     // VALIDAR SI ES NULO, CADA VEZ QUE SE USE.
     public Desarrollador buscar_desarrollador (int legajo_buscado) {  
@@ -56,9 +58,18 @@ public class Equipo {
         }      
         return null;       
     }
+    
+    public void mostrar_equipo () {
+        System.out.println("/////////////////////////////////////////////////");
+        for (Desarrollador desarrollador : equipo_desarrolladores) {      
+            System.out.println(desarrollador.toString());
+        } 
+        System.out.println("/////////////////////////////////////////////////");
+    }
 
     
-    
+    // HACER toSTRING //
+
     
     
     //////////////// GETTERS, SETTERS, HASHCODE, EQUALS ///////////////////////

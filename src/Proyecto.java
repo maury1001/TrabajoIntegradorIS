@@ -12,16 +12,15 @@ public class Proyecto {
     
     public Proyecto(int id) {
         this.id = id;
-    //    this.lider = new Lider_Proyecto(); // ??? crear uno en blanco? o nulo
+        this.lider = null ; // ??? crear uno en blanco? o nulo
         this.items = new HashSet () ;  // Coleccion vacia.
     }
     
     
     
-  // public void asignar_lider (Desarrollador d) {
-  //     this.lider = d ;
-       
-  // }
+   public void asignar_lider (Lider_Proyecto d) {
+       this.lider = d ;       
+   }
    
    
     public void asignar_equipo (Item i, Equipo e) {
@@ -30,13 +29,10 @@ public class Proyecto {
     
     }
     
+    public void Crear_Item () {
+        //COMPLETAR
+    }
     
-    
-    
-    
-   public void asignar_lider (Lider_Proyecto d) {
-       this.lider = d ;      
-   }
    
    //IMPRIME TODOS LOS ITEMS EN EL PROYECTO.
    public void mostrar_items () {      

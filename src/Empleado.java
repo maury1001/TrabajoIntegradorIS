@@ -12,7 +12,7 @@
 
 public abstract class Empleado extends Persona {
     
-    private int legajo;
+   private int legajo;
     
    public Empleado(String nombre,String apellido, int documento){
       super(nombre,apellido,documento);
@@ -25,9 +25,11 @@ public abstract class Empleado extends Persona {
         
     }
  */  
+
+    public void setLegajo(int legajo) {
+        this.legajo = legajo;
+    }
    
-   
-    //Sin setter.
     public int getLegajo() {
         return legajo;
     }

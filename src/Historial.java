@@ -13,7 +13,7 @@ class Historial {
         historial = "";
                 
     }
-
+    
     public String getHistorial() {
         return historial;
     }
