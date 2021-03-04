@@ -15,18 +15,30 @@ public class Item {
 //    private Estado estado_actual;     // definir ESTADO
     private Fecha fecha_limite ;
     private Historial historial ;
-//    private TipoItem tipo;            //Definir TIPO ITEM. GETTER Y SETTER, Y CONSTRUCTOR
+    private Tipo_Item tipo;            
     private Equipo equipo_asignado ;
     
     
-    public Item (String descripcion, Empleado responsable_item, Fecha fecha_limite, Equipo e) {
+    public Item (String descripcion, Tipo_Item tipo_item , Empleado responsable_item, Fecha fecha_limite, Equipo e) {
         this.id_item = this.id; 
         this.id ++;
         this.descripcion = descripcion;
-        this.responsable_item = responsable_item; // null??
+        this.tipo= tipo_item ;
+        this.responsable_item = responsable_item;
         this.fecha_limite = fecha_limite;
         this.historial = new Historial ();
         this.equipo_asignado = e;
+    }
+    
+    public Item (String descripcion, Tipo_Item tipo_item, Fecha fecha_limite) {
+        this.id_item = this.id; 
+        this.id ++;
+        this.descripcion= descripcion;
+        this.tipo=tipo_item ;
+        this.responsable_item = null;
+        this.fecha_limite = fecha_limite;
+        this.historial = new Historial ();
+        this.equipo_asignado = null;        
     }
     
     
@@ -39,18 +51,10 @@ public class Item {
     }
     
     
-    public void actualizarHistorial (String s) {
-        // pedir estado actual y siguiente y hacer el string formato?
-        this.historial.historial = (historial.getHistorial() + " " + s); 
-        // historial local pide el historial + un espacio + el string VALIDAR??  
-    
+    public void actualizarHistorial (Empleado responsable, Fecha fecha, String estado_actual) {
+        this.historial.actualizarHistorial(responsable, fecha, estado_actual);
     }
     
-    public void ver_historial ( ) {
-        System.out.println(this.historial); 
-        // hacer toString en CLASE Historial
-        // ESTADO, RESPONSABLE, FECHA.
-    }
     
     public void asignar_responsable (Empleado e) {
        this.responsable_item = e;      
@@ -64,8 +68,58 @@ public class Item {
     }
     */
     
-    /////////////////  GETTERS Y SETTERS  //////////////////////////////
+    /////////////////  GETTERS, SETTERS, HASHCODE, EQUALS, toSTRING  //////////////////////////////
 
+    @Override
+    public String toString() {
+        return "Item{" + "id_item= " + id_item  + ", responsable del item= " + responsable_item +
+                ", fecha limite= " + fecha_limite + ", ID equipo asignado= " + equipo_asignado.getId_equipo() +
+                ", descripcion= " + descripcion + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return this.id_item;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Item other = (Item) obj;
+        if (this.id_item != other.id_item) {
+            return false;
+        }
+        return true;
+    }
+
+    public int getId_item() {
+        return id_item;
+    }
+
+    public Tipo_Item getTipo() {
+        return tipo;
+    }
+
+    public Equipo getEquipo_asignado() {
+        return equipo_asignado;
+    }
+
+    public void setTipo(Tipo_Item tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setEquipo_asignado(Equipo equipo_asignado) {
+        this.equipo_asignado = equipo_asignado;
+    }
+    
     public int getId() {
         return id;
     }
@@ -105,8 +159,6 @@ public class Item {
     public void setHistorial(Historial historial) {
         this.historial = historial;
     }
-
-
     
     
     

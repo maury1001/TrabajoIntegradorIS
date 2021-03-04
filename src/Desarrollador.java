@@ -10,10 +10,14 @@
  */
 public class Desarrollador extends Empleado {
 
-    public Desarrollador(String nombre, String apellido, int documento) {
+    public Desarrollador(String nombre, String apellido, int documento,int legajo) {
         super(nombre, apellido, documento);
+        super.setLegajo(legajo);
     }
+    
+    
 
+    
  
     
     

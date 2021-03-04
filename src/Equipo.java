@@ -56,7 +56,14 @@ public class Equipo {
         }      
         return null;       
     }
-
+    
+    public void mostrar_equipo (Equipo e) {
+        
+        for (Desarrollador d : this.equipo_desarrolladores) {
+            System.out.println(d);
+        
+        }
+    }
     
     
     

@@ -17,8 +17,7 @@ abstract class Empleado extends Persona {
     //Sin setter.
 
     public Empleado(String nombre, String apellido, int documento) {
-        super (nombre,apellido,documento) ;
-        
+        super (nombre,apellido,documento) ;       
         
     }
     
@@ -30,6 +29,11 @@ abstract class Empleado extends Persona {
         this.legajo = legajo;
     }
     
+    @Override
+    public String toString () {
+        return ("{ " + this.getNombre() + " Numero de Legajo: " + this.getLegajo()+ "}" );
+    
+    } 
     
     
     

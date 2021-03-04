@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,19 +14,36 @@
  */
 class Historial {
     
-    public String historial;
+    public ArrayList <String> historial;
     
     public Historial() {
-        historial = "";
+        historial = new ArrayList ();
                 
     }
 
-    public String getHistorial() {
+    public ArrayList getHistorial() {
         return historial;
     }
 
-    public void setHistorial(String historial) {
+    public void setHistorial(ArrayList historial) {
         this.historial = historial;
     }
+    
+    public void ver_historial () {
+        for (String s : this.historial){
+            System.out.println(s);
+        }
+    }
+    
+    private void agregarHistorial (String s) {
+        this.historial.add(s) ;
+    }
+    
+    public void actualizarHistorial (Empleado responsable, Fecha fecha, String estado_actual) {
+        String s =  ("  ///  " + "Fecha: "+ fecha+ " Responsable: "+ responsable +" Estado actual: " + estado_actual );  
+        this.agregarHistorial(s);
+    }
+    
+    
     
 }

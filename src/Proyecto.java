@@ -10,42 +10,51 @@ import java.util.HashSet;
 
 public class Proyecto {
     
-    private int id ;
-    public Lider_Proyecto lider;
+    private static int id = 1 ;
+    private int id_proyecto;
+    public Empleado lider;
     private HashSet <Item> items;
     
     
-    public Proyecto(int id) {
-        this.id = id;
+    public Proyecto() {
+        this.id_proyecto = id;
+        id++;
         this.lider = null; 
         this.items = new HashSet () ;  // Coleccion vacia.
-    }
+    } 
     
-    public Proyecto (int id, Lider_Proyecto lid) {
-        this.id = id;
+    public Proyecto (Empleado lid) {
+        this.id_proyecto = id;
+        id++;
         this.lider = lid; // Inicializa con un lider ya asignado.
         this.items = new HashSet () ;  // Coleccion vacia.        
-    
     }
     
-    
-    
-    
-    
-   public void asignar_lider (Lider_Proyecto d) {
+    public void asignar_lider (Empleado d) {
        this.lider = d ;      
    }
    
    //IMPRIME TODOS LOS ITEMS EN EL PROYECTO.
-   public void mostrar_items () {      
-       System.out.println (this.items.toString()); // HACER.. recorrer estructura.
+   public void mostrar_items () {     
+       
+       for (Item i : this.items) {
+        System.out.println (i); 
+       }
    }
    
+    public void crearItem (String descripcion, Tipo_Item tipo_item, Empleado responsable,Fecha fecha_limite, Equipo e ){
+             
+       Item i = new Item(descripcion, tipo_item, responsable, fecha_limite, e);
+       this.items.add(i);            
+   }
+   
+
+
 
    
    
    ///////////////////////////////
-   /// GETTERS Y SETTER///////////
+   /// GETTERS, SETTER, EQUALS, HASHCODE toString ///////////
    //////////////////////////////
    
     public int getId() {
@@ -60,9 +69,7 @@ public class Proyecto {
         return items;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
 
     public void setLider(Lider_Proyecto lider) {
         this.lider = lider;
@@ -95,6 +102,18 @@ public class Proyecto {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        if (this.lider== null) {
+            return ("Proyecto{" + " id del proyecto= " + id + ", lider= No asignado. }");
+        }
+        else {
+            return "Proyecto{" + " id del proyecto= " + id + ", lider= " + lider + '}';
+        }
+        
+    }
+    
     
     
    
