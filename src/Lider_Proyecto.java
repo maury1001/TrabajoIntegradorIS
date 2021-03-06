@@ -7,9 +7,9 @@
 
 public class Lider_Proyecto extends Empleado {
 
-    public Lider_Proyecto(String nombre, String apellido, int documento, int legajo) {
+    public Lider_Proyecto(String nombre, String apellido, int documento) {
         super(nombre, apellido, documento);
-        super.setLegajo(legajo);
+        // legajo se setea automatico en el constructor de Empleado.
     }
     
     

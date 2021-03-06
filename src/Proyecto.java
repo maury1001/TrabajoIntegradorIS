@@ -46,16 +46,16 @@ public class Proyecto {
              
        Item i = new Item(descripcion, tipo_item, responsable, fecha_limite, e);
        this.items.add(i);            
-   }
+   }    
+    
    
 
 
 
    
    
-   ///////////////////////////////
+   
    /// GETTERS, SETTER, EQUALS, HASHCODE toString ///////////
-   //////////////////////////////
    
     public int getId() {
         return id;
@@ -113,13 +113,6 @@ public class Proyecto {
         }
         
     }
-    
-    
-    
-   
-            
-            
-            
             
    
     

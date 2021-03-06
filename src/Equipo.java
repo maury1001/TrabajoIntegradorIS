@@ -24,6 +24,7 @@ public class Equipo {
     public Equipo() {
         this.id_equipo=this.id ;
         this.id ++;
+        this.equipo_desarrolladores = new HashSet ();
         
     }
     
@@ -45,6 +46,8 @@ public class Equipo {
             return "El empleado no esta en el equipo." ;
     
     }
+    
+    
     // BUSCA Y RETORNA EL EMPLEADO, POR LEGAJO.   
     // VALIDAR SI ES NULO, CADA VEZ QUE SE USE.
     public Desarrollador buscar_desarrollador (int legajo_buscado) {  
@@ -52,10 +55,14 @@ public class Equipo {
         for (Desarrollador desarrollador : equipo_desarrolladores) {      
             if (legajo_buscado == desarrollador.getLegajo()){
                 return desarrollador ;
-            }  
+            }
+            else {
+                System.out.println("Empleado no encontrado.");
+            }
         }      
         return null;       
-    }
+    }    
+    
     
     public void mostrar_equipo (Equipo e) {
         
@@ -68,7 +75,7 @@ public class Equipo {
     
     
     
-    //////////////// GETTERS, SETTERS, HASHCODE, EQUALS ///////////////////////
+    //////////////// GETTERS, SETTERS, HASHCODE, EQUALS, toString ///////////////////////
     
     public void setEquipo_desarrolladores(HashSet equipo_desarrolladores) {
         this.equipo_desarrolladores = equipo_desarrolladores;
@@ -109,27 +116,19 @@ public class Equipo {
         return true;
     }
 
+    
+    // PROBAR TOSTRING.
+    @Override
+    public String toString() {
+        String desarrolladores = "";
+        for (Desarrollador e :equipo_desarrolladores){
+        desarrolladores= desarrolladores + ", " + e;
+        }
+        return "Equipo{" + "id_equipo=" + id_equipo + ", equipo_desarrolladores=" + desarrolladores + '}';
+        
+    }
 
+    
     
     
 }
-
-/*
-   private HashSet <Equipo> equipos;
-
-// EN EL CONSTRUCTOR:     
-    // Crear la coleccion vacia.
-    this.equipos = new HashSet (); 
-
-    // validar si es nulo el retorno.
-    public Equipo buscar_equipo (int id) {
-                  
-        for (Equipo equip : this.equipos) {
-            if (id == equip.getId_equipo()){
-                return equip ;
-                }  
-            }  
-        return null;
-    }
-
-*/
