@@ -52,7 +52,7 @@ public class Sistema {
         }
     }
 
-    public void ver_Proyecto() {
+    public void ver_Proyectos() {
         
         for (Proyecto i : this.proyectos_existentes) {
             System.out.println(i);
@@ -88,7 +88,7 @@ public class Sistema {
         }
     }
     
-    public void ver_Equipo () {
+    public void ver_Equipos () {
         
         for (Equipo i : this.equipos_existentes) {
             System.out.println(i);
@@ -121,6 +121,9 @@ public class Sistema {
             System.out.println("El Tipo de Item ya existe.");
         }else {
         this.tipoItems_existentes.add(e) ;  
+        //Se aumenta la variable estatica de tipo_item
+        Tipo_Item.cantTipo++;
+        
         }
     }
 
@@ -132,27 +135,50 @@ public class Sistema {
     
     }
     
+    //METODO CREAR CON PARAMETROS NECESARIOS.
+    public void reportarItem (int id_proyecto,String descripcion, Tipo_Item ti) {
+        Proyecto proyectoAux=this.buscar_proyecto(id_proyecto);
+        if (!(proyectoAux==null)) {
+            if (this.tipoItems_existentes.contains(ti)){
+                proyectoAux.crearItem(descripcion, ti);
+                  
+            }else {
+                System.out.println("Tipo de item no existe");  
+                // crear tipo de item??
+                }
+        
+        }else {
+            System.out.println("Proyecto no encontrado");
+            
+            // crear proyecto si no existe??
+            }
+    }
     
+    // METODO CREAR CON TODOS SUS PARAMETROS.
     
-    
-    public void reportarItem (int id_proyecto, String descripcion,Tipo_Item tipo, int legajo_responsable,Fecha fechalim,int id_equipo ) {      
+    public void reportarItem2 (int id_proyecto, String descripcion,Tipo_Item tipo, int legajo_responsable,Fecha fechalim,int id_equipo ) {      
         // VERIFICACION DE DATOS
         
         //FALTA VERIFICAR TIPO DE ITEM.
         Proyecto proyectoAux=this.buscar_proyecto(id_proyecto);
         if (!(proyectoAux==null)) {
-            Empleado empleado = Empleado.buscar_empleado(legajo_responsable) ;
-            if (!(empleado == null)) {
-                Equipo equipo = this.buscar_equipo(id_equipo) ;
-                if (! (equipo == null)){                  
-                    System.out.println("Datos correctos.");
-                    proyectoAux.crearItem(descripcion, tipo, empleado, fechalim, equipo);
+            if (this.tipoItems_existentes.contains(tipo)){
+                Empleado empleado = Empleado.buscar_empleado(legajo_responsable) ;
+                if (!(empleado == null)) {
+                    Equipo equipo = this.buscar_equipo(id_equipo) ;
+                    if (! (equipo == null)){                  
+                        System.out.println("Datos correctos.");
+                        proyectoAux.crearItem2(descripcion, tipo, empleado, fechalim, equipo);
+                    }
+                }          
+            } else {
+                System.out.println("Tipo de item no existe");  
+                // crear tipo de item??
                 }
-            }          
         } else {
-            System.out.println("Proyecto no encontrado.");  
+            System.out.println("Proyecto no encontrado");
             // crear proyecto si no existe??
-        }
+            }
     }     
-    
+
 }

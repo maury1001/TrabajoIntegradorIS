@@ -30,15 +30,15 @@ public class Item {
         this.equipo_asignado = e;
     }
     
-    public Item (String descripcion, Tipo_Item tipo_item, Fecha fecha_limite) {
+    public Item (String descripcion, Tipo_Item tipo_item) {
         this.id_item = this.id; 
         this.id ++;
         this.descripcion= descripcion;
         this.tipo=tipo_item ;
-        this.responsable_item = null;
-        this.fecha_limite = fecha_limite;
+        this.responsable_item = null; // ASIGNAR RESPONSABLE
+        this.fecha_limite = null; // METODO ESTABLECER FECHA.
         this.historial = new Historial ();
-        this.equipo_asignado = null;        
+        this.equipo_asignado = null;  // ASIGNAR EQUIPO      
     }
     
     

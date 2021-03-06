@@ -10,6 +10,7 @@ import java.util.HashSet;
 
 public class Proyecto {
     
+    // nombre de usuario.
     private static int id = 1 ;
     private int id_proyecto;
     public Empleado lider;
@@ -42,12 +43,17 @@ public class Proyecto {
        }
    }
    
-    public void crearItem (String descripcion, Tipo_Item tipo_item, Empleado responsable,Fecha fecha_limite, Equipo e ){
+    public void crearItem2 (String descripcion, Tipo_Item tipo_item, Empleado responsable,Fecha fecha_limite, Equipo e ){
              
        Item i = new Item(descripcion, tipo_item, responsable, fecha_limite, e);
        this.items.add(i);            
-   }    
+   }   
     
+    public void crearItem (String descripcion, Tipo_Item tipo_item ){
+             
+       Item i = new Item(descripcion, tipo_item);
+       this.items.add(i);            
+   }    
    
 
 

@@ -12,6 +12,7 @@ import java.util.ArrayList;
  *
  * @author pity_
  */
+
 abstract class Empleado extends Persona {
     
     private static int cantEmpleados = 1;
@@ -23,8 +24,7 @@ abstract class Empleado extends Persona {
 
     public Empleado(String nombre, String apellido, int documento) {
         super (nombre,apellido,documento) ;       
-        this.legajo = cantEmpleados;
-        cantEmpleados++;
+        this.legajo = cantEmpleados;    
         this.agregar_empleado(this);
     }
     
@@ -34,7 +34,9 @@ abstract class Empleado extends Persona {
         if (Empleado.empleados.contains(e)){
             System.out.println("El empleado ya existe.");
         }else {
-         Empleado.empleados.add(e) ;  
+         Empleado.empleados.add(e) ; 
+         // Se aumenta la variable estatica.
+         cantEmpleados++;
         }
     }
     
@@ -50,14 +52,22 @@ abstract class Empleado extends Persona {
         return null;       
     } 
     
+    public static void ver_Empleados (){
+        for (Empleado i : Empleado.empleados) {
+            System.out.println(i);
+        }
+    }
+    
     
     public int getLegajo() {
         return legajo;
     }
+    
+
 
     @Override
     public int hashCode() {
-        return this.legajo;
+        return this.DNI;
     }
 
     @Override
@@ -72,11 +82,13 @@ abstract class Empleado extends Persona {
             return false;
         }
         final Empleado other = (Empleado) obj;
-        if (this.legajo != other.legajo) {
+        if (this.DNI != other.DNI) {
             return false;
         }
         return true;
     }
+
+    
     
     
     
