@@ -35,7 +35,6 @@ public class Sistema {
         
     }
             
-            // PREGUNTAR SI ES NULO.
     public Proyecto buscar_proyecto (int id) {
         for (Proyecto proyectoAux : this.proyectos_existentes) {      
             if (id == proyectoAux.getId()){
