@@ -9,11 +9,7 @@ public class LoginUsuario {
      private static HashMap<String, Usuario> usuariosSistema = null;
      private static Usuario usuarioValidado = null;
      
-    
-    
-  
-    
-    
+
     public static Usuario inicioSesion(){
          if(usuariosSistema == null){
           usuariosSistema = new HashMap<String, Usuario>();
@@ -66,7 +62,11 @@ public class LoginUsuario {
     
     
     }
-     
+   
+    
+    
+    
+    
   
 }
 

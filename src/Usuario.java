@@ -13,8 +13,7 @@ public class Usuario extends Persona{
     }
     
     
-    public void introducirUsuario(){}
-    public void introducirContraseña(){}
+
     public void solicitarNuevoItem(){}
     
     
