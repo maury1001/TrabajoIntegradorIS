@@ -1,10 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
 public class Item {
     
     private static int id=1;
@@ -36,7 +29,7 @@ public class Item {
         this.descripcion= descripcion;
         this.tipo=tipo_item ;
         this.responsable_item = null; // ASIGNAR RESPONSABLE
-        this.fecha_limite = null; // METODO ESTABLECER FECHA.
+        this.fecha_limite = new Fecha (01,01,2021); // METODO ESTABLECER FECHA.
         this.historial = new Historial ();
         this.equipo_asignado = null;  // ASIGNAR EQUIPO      
     }
@@ -72,9 +65,17 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" + "id_item= " + id_item  + ", responsable del item= " + responsable_item +
+        if ((this.responsable_item==null) & (this.equipo_asignado==null) ) {
+            
+               return "Item{" + "id_item= " + id_item  + ", tipo de item: "+this.getTipo()+  ", responsable del item= No asignado " +
+                ", fecha limite= " + fecha_limite + ", ID equipo asignado= No Asignado"  +
+                ", descripcion= " + descripcion + '}'; 
+            }
+            else {       
+            return "Item{" + "id_item= " + id_item  +", tipo de item: "+this.getTipo()+ ", responsable del item= " + responsable_item +
                 ", fecha limite= " + fecha_limite + ", ID equipo asignado= " + equipo_asignado.getId_equipo() +
                 ", descripcion= " + descripcion + '}';
+            }
     }
 
     @Override

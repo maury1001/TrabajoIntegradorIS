@@ -15,6 +15,8 @@ public class Sistema {
         this.equipos_existentes= new HashSet ();
         this.proyectos_existentes = new HashSet (); 
         this.tipoItems_existentes = new HashSet ();
+       // Llama al metodo para iniciar el frame loggin de usuario.
+        this.mostrarPantalla();
     }
     
     public static Sistema getInstance(){
@@ -25,9 +27,15 @@ public class Sistema {
         return instanciaSistema;
     }  
     
+    public void mostrarPantalla () {
+        FrameLogin e = new FrameLogin ();
+        e.setVisible(true);
+    }
+    
+    
+    
     
     // METODOS PROYECTO:
-    
     
     public void crear_proyecto (Empleado responsable) {
         Proyecto proyecto_nuevo = new Proyecto (responsable) ;
@@ -40,7 +48,8 @@ public class Sistema {
             if (id == proyectoAux.getId()){
                 return proyectoAux ;
             }  
-        }      
+        }  
+    System.out.println("No se encontro el proyecto.");    
     return null;
     }
     
@@ -73,10 +82,8 @@ public class Sistema {
             if (e.getId_equipo()== id) {
                 return (e);
             }
-            else {
-                System.out.println("Equipo no encontrado");
-            }
         }
+        System.out.println("Equipo no encontrado");
         return null;
     }
     
@@ -106,13 +113,10 @@ public class Sistema {
     
     public Tipo_Item buscar_tipoItem (String nombre) {
         for (Tipo_Item e : this.tipoItems_existentes) {
-            if (e.getNombre().equals(nombre)) {
+            if (e.getNombre().equals(nombre)) 
                 return (e);
-            }
-            else {
-                System.out.println("Tipo de item no encontrado");
-            }
         }
+        System.out.println("No se ecnontro el tipo de item.");
         return null;
     }
     

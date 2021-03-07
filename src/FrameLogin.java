@@ -212,11 +212,11 @@ public class FrameLogin extends javax.swing.JFrame {
         
 
        if (!(usuarioValidado == null)){
-           System.out.println("ENTRO AL PRIMERO");
+           
         char clave[]=txtContraseña.getPassword();
         String Contraseña = new String(clave);
               if(Contraseña.equals(usuarioValidado.obtenerContraseña())){
-                  System.out.println("ENTRO AL Segundo");
+                  
                   //S3 línea 1
                     this.dispose();
                     //S3 línea 2
