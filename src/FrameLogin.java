@@ -199,48 +199,29 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
        //Sección1
-        String usuario = txtUsuario.getText();
-         
-
-     //    if(usuariosSistema == null){
-     //     usuariosSistema = new HashMap<String, Usuario>();
-     // }
+        String usuario = txtUsuario.getText();      
    
-        usuarioValidado = usuariosSistema.get(usuario);   
-        
-           
-        
+        usuarioValidado = usuariosSistema.get(usuario);                           
 
-       if (!(usuarioValidado == null)){
-           
+    if (!(usuarioValidado == null)){          
         char clave[]=txtContraseña.getPassword();
         String Contraseña = new String(clave);
-              if(Contraseña.equals(usuarioValidado.obtenerContraseña())){
-                  
-                  //S3 línea 1
-                    this.dispose();
-                    //S3 línea 2
+              if(Contraseña.equals(usuarioValidado.obtenerContraseña())){              
                     JOptionPane.showMessageDialog(null, "Bienvenido\n Has ingresado "
                     + "satisfactoriamente al sistema", "Mensaje de bienvenida",
-                    JOptionPane.INFORMATION_MESSAGE);
-                    //S3 línea 3
-                    FrameLogin formformulario1 = new FrameLogin();
-                    //S3 línea 4
-                    formformulario1.setVisible(true);
-                    
-
-              }
- 
+                    JOptionPane.INFORMATION_MESSAGE);                 
+                
+                FrameSolicitudes f = new FrameSolicitudes ();
+                f.setVisible(true); 
+                this.dispose();
+                }
    }else {
-
-
-          //S3 línea 5
           JOptionPane.showMessageDialog(null, "Acceso denegado:\n"
           + "Por favor ingrese un usuario y/o contraseña correctos",  
-          "Acceso denegado", JOptionPane.ERROR_MESSAGE);
-            
-
+          "Acceso denegado", JOptionPane.ERROR_MESSAGE);         
        }
+    
+    
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
@@ -264,14 +245,9 @@ public class FrameLogin extends javax.swing.JFrame {
         char clave[] = txtContraseña2.getPassword();
         String contraseña = new String(clave);
         
-        
-        Usuario usuarioNuevo = new Usuario(nombre,apellido,documento,usuario,contraseña);
+        Usuario usuarioNuevo = new Usuario(nombre,apellido,documento,usuario,contraseña);   
       
-      if(usuariosSistema == null){
-          usuariosSistema = new HashMap<String, Usuario>();
-      }
-      
-      usuariosSistema.put(usuario, usuarioNuevo);
+        usuariosSistema.put(usuario, usuarioNuevo);
       
       //jDialog1.setVisible(false);
         jDialog1.dispose();
