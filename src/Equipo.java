@@ -44,11 +44,9 @@ public class Equipo {
             if (legajo_buscado == desarrollador.getLegajo()){
                 return desarrollador ;
             }
-            else {
-                System.out.println("Empleado no encontrado.");
-            }
-        }      
-        return null;       
+        }   
+       System.out.println("Empleado no encontrado.");
+       return null;       
     }    
     
     

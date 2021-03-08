@@ -54,7 +54,7 @@ public class Item {
        // ACTUALIZAR HISTORIAL ??
     }
     
-  /*  public String ver_estado_actual () {
+    /*  public String ver_estado_actual () {
         return this.Estado.estadoActual
         
         //FALTA IMPLEMENTAR ESTADO.
