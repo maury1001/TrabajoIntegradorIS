@@ -5,6 +5,9 @@
     <Container class="javax.swing.JDialog" name="DialgNuevoProyecto">
       <Properties>
         <Property name="title" type="java.lang.String" value="Nuevo Proyecto"/>
+        <Property name="location" type="java.awt.Point" editor="org.netbeans.beaninfo.editors.PointEditor">
+          <Point value="[450, 200]"/>
+        </Property>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[355, 180]"/>
         </Property>
@@ -98,6 +101,9 @@
     <Container class="javax.swing.JDialog" name="DialogItem">
       <Properties>
         <Property name="title" type="java.lang.String" value="Item creado con exito"/>
+        <Property name="location" type="java.awt.Point" editor="org.netbeans.beaninfo.editors.PointEditor">
+          <Point value="[450, 200]"/>
+        </Property>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[400, 350]"/>
         </Property>
@@ -205,6 +211,9 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="Nueva Solicitud"/>
+    <Property name="bounds" type="java.awt.Rectangle" editor="org.netbeans.beaninfo.editors.RectangleEditor">
+      <Rectangle value="[450, 200, 0, 0]"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>

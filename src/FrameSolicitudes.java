@@ -82,6 +82,7 @@ public class FrameSolicitudes extends javax.swing.JFrame {
         comboBoxProyectos = new javax.swing.JComboBox<>();
 
         DialgNuevoProyecto.setTitle("Nuevo Proyecto");
+        DialgNuevoProyecto.setLocation(new java.awt.Point(450, 200));
         DialgNuevoProyecto.setSize(new java.awt.Dimension(355, 180));
 
         etiquetaTitulo2.setText("                     Nuevo Proyecto");
@@ -142,6 +143,7 @@ public class FrameSolicitudes extends javax.swing.JFrame {
         );
 
         DialogItem.setTitle("Item creado con exito");
+        DialogItem.setLocation(new java.awt.Point(450, 200));
         DialogItem.setSize(new java.awt.Dimension(400, 350));
 
         jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -206,6 +208,7 @@ public class FrameSolicitudes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Nueva Solicitud");
+        setBounds(new java.awt.Rectangle(450, 200, 0, 0));
 
         etiquetaTitulo.setText("PANEL DE SOLICITUDES");
 
