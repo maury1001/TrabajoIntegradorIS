@@ -1,32 +1,36 @@
 import java.util.HashSet;
+import java.util.Objects;
 
 
 public class Proyecto {
     
-    // nombre de usuario.
-    private static int id = 1 ;
+    public static int id = 1 ;
     private int id_proyecto;
     public Empleado lider;
     private HashSet <Item> items;
+    private String nombre;
+    private Usuario usuario;
     
     
-    public Proyecto() {
-        this.id_proyecto = id;
-        id++;
+    public Proyecto(Usuario user, String nuevoNombre) {
+        this.id_proyecto = id;  
+        this.nombre=nuevoNombre;
+        this.usuario=user;
         this.lider = null; 
         this.items = new HashSet () ;  // Coleccion vacia.
     } 
     
-    public Proyecto (Empleado lid) {
+    public Proyecto (Usuario user,String nuevoNombre , Empleado lid ) {
         this.id_proyecto = id;
-        id++;
-        this.lider = lid; // Inicializa con un lider ya asignado.
-        this.items = new HashSet () ;  // Coleccion vacia.        
+        this.usuario= user;
+        this.nombre=nuevoNombre;
+        this.lider = lid;
+        this.items = new HashSet () ;  // Coleccion vacia. 
+        // se puede filtrar los proyecto por Lider (acceso desde login.)
     }
     
-    public void asignar_lider (Empleado d) {
-       this.lider = d ;      
-   }
+    
+ 
    
    //IMPRIME TODOS LOS ITEMS EN EL PROYECTO.
    public void mostrar_items () {     
@@ -34,20 +38,26 @@ public class Proyecto {
        for (Item i : this.items) {
         System.out.println (i); 
        }
-   }
+    }
    
-    public void crearItem2 (String descripcion, Tipo_Item tipo_item, Empleado responsable,Fecha fecha_limite, Equipo e ){
+   /* public void crearItem2 (String descripcion, Tipo_Item tipo_item, Empleado responsable,Fecha fecha_limite, Equipo e ){
              
        Item i = new Item(descripcion, tipo_item, responsable, fecha_limite, e);
        this.items.add(i);            
-   }   
+   }   */
     
     public void crearItem (String descripcion, Tipo_Item tipo_item ){
              
        Item i = new Item(descripcion, tipo_item);
-       this.items.add(i);            
-   }    
+       this.items.add(i);  
+       
+     //  return i.getId_item();
+    }    
    
+    public void buscarItem (String s) {
+        
+    
+    }
 
 
 
@@ -56,8 +66,28 @@ public class Proyecto {
    
    /// GETTERS, SETTER, EQUALS, HASHCODE toString ///////////
    
+    
+    // Asignar lider
+    public void setLider(Empleado lider) {
+        this.lider = lider;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+    
+    
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
     public int getId() {
-        return id;
+        return id_proyecto;
     }
 
     public Empleado getLider() {
@@ -79,9 +109,12 @@ public class Proyecto {
     }
     
     // Hash por ID de Proyecto.
+
     @Override
-    public int hashCode() {   
-        return this.id;
+    public int hashCode() {
+        int hash = 3;
+        hash = 47 * hash + Objects.hashCode(this.nombre);
+        return hash;
     }
 
     @Override
@@ -96,7 +129,7 @@ public class Proyecto {
             return false;
         }
         final Proyecto other = (Proyecto) obj;
-        if (this.id != other.id) {
+        if (!Objects.equals(this.nombre, other.nombre)) {
             return false;
         }
         return true;
@@ -104,14 +137,18 @@ public class Proyecto {
 
     @Override
     public String toString() {
-        if (this.lider== null) {
-            return ("Proyecto{" + " id del proyecto= " + id + ", lider= No asignado. }");
+       if (this.lider== null)  {
+            return ("Proyecto:"+"Nombre= "+nombre + " id del proyecto= " + id_proyecto +", usuario: "+ usuario.getNombreUsuario()+ ", lider= No asignado.");
         }
         else {
-            return "Proyecto{" + " id del proyecto= " + id + ", lider= " + lider + '}';
+        return "Proyecto: " + " nombre=" + nombre + " id del proyecto= " + id_proyecto + ", usuario: " + usuario.getNombreUsuario() + ", lider=" + lider ;
         }
-        
     }
+    
+
+
+
+
             
    
     

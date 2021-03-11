@@ -2,7 +2,8 @@ import java.util.HashSet;
 
 public class Equipo {
     
-    private static int id = 1 ;
+    public static int id = 1 ; 
+// La variable se aumenta cuando se agrega el equipo creado correctamente a la coleccion.
     private int id_equipo ;
     private HashSet <Desarrollador> equipo_desarrolladores ;
  
@@ -11,7 +12,6 @@ public class Equipo {
 
     public Equipo() {
         this.id_equipo=this.id ;
-        this.id ++;
         this.equipo_desarrolladores = new HashSet ();
         
     }
@@ -103,7 +103,7 @@ public class Equipo {
     }
 
     
-    // PROBAR TOSTRING.
+   
     @Override
     public String toString() {
         String desarrolladores = "";

@@ -13,9 +13,12 @@ public class FrameLogin extends javax.swing.JFrame {
         if (usuariosSistema == null){
         usuariosSistema = new HashMap<String, Usuario>();
         }
-        Usuario nuevoUsuario = new Usuario("Mauricio","Allaman",35688716,"Admin","12345");
-        usuariosSistema.put("Admin", nuevoUsuario);
+        
         initComponents();
+    }
+    
+    public static void agregarUsuario (Usuario user) {
+        FrameLogin.usuariosSistema.put(user.getNombreUsuario(), user);
     }
     
 
@@ -43,11 +46,9 @@ public class FrameLogin extends javax.swing.JFrame {
         btnNuevoUsuario = new javax.swing.JButton();
 
         jDialog1.setTitle("Registro de Usuario");
-        jDialog1.setBounds(new java.awt.Rectangle(0, 0, 0, 0));
-        jDialog1.setLocation(new java.awt.Point(200, 200));
-        jDialog1.setMaximumSize(new java.awt.Dimension(500, 390));
+        jDialog1.setBounds(new java.awt.Rectangle(450, 200, 0, 0));
+        jDialog1.setLocation(new java.awt.Point(450, 200));
         jDialog1.setMinimumSize(new java.awt.Dimension(500, 390));
-        jDialog1.setPreferredSize(new java.awt.Dimension(500, 390));
         jDialog1.setSize(new java.awt.Dimension(500, 390));
 
         etiquetaNombre.setText("Nombre");
@@ -122,6 +123,7 @@ public class FrameLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema gestor de pedidos");
+        setBounds(new java.awt.Rectangle(450, 200, 0, 0));
 
         etiquetaUsuario.setText("Usuario");
 
@@ -198,10 +200,9 @@ public class FrameLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-       //Sección1
-        String usuario = txtUsuario.getText();      
-   
-        usuarioValidado = usuariosSistema.get(usuario);                           
+
+    String usuario = txtUsuario.getText();      
+    usuarioValidado = usuariosSistema.get(usuario);                           
 
     if (!(usuarioValidado == null)){          
         char clave[]=txtContraseña.getPassword();
@@ -210,8 +211,9 @@ public class FrameLogin extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Bienvenido\n Has ingresado "
                     + "satisfactoriamente al sistema", "Mensaje de bienvenida",
                     JOptionPane.INFORMATION_MESSAGE);                 
-                
-                FrameSolicitudes f = new FrameSolicitudes ();
+                FrameSolicitudes.setUser(usuarioValidado);
+                //  System.out.println(usuarioValidado.getNombreUsuario());
+                FrameSolicitudes f = new FrameSolicitudes ();          
                 f.setVisible(true); 
                 this.dispose();
                 }
@@ -219,7 +221,7 @@ public class FrameLogin extends javax.swing.JFrame {
           JOptionPane.showMessageDialog(null, "Acceso denegado:\n"
           + "Por favor ingrese un usuario y/o contraseña correctos",  
           "Acceso denegado", JOptionPane.ERROR_MESSAGE);         
-       }
+    }
     
     
     }//GEN-LAST:event_btnIngresarActionPerformed
@@ -249,7 +251,6 @@ public class FrameLogin extends javax.swing.JFrame {
       
         usuariosSistema.put(usuario, usuarioNuevo);
       
-      //jDialog1.setVisible(false);
         jDialog1.dispose();
       
     }//GEN-LAST:event_btnIngresarUsuarioActionPerformed

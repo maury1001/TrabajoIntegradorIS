@@ -1,6 +1,8 @@
 public class Item {
-    
+    //Staticos
     private static int id=1;
+    
+    //Variables
     private int id_item ;
     public String descripcion ;
     private Empleado responsable_item;
@@ -10,6 +12,9 @@ public class Item {
     private Historial historial ;
     private Tipo_Item tipo;            
     private Equipo equipo_asignado ;
+    
+    
+    // FALTA SETEAR LA PRIORIDAD
     
     
     public Item (String descripcion, Tipo_Item tipo_item , Empleado responsable_item, Fecha fecha_limite, Equipo e) {
@@ -51,7 +56,7 @@ public class Item {
     
     public void asignar_responsable (Empleado e) {
        this.responsable_item = e;      
-       // ACTUALIZAR HISTORIAL ??
+       // ACTUALIZAR HISTORIAL ?? FECGA, ESTADO ACTUAL.
     }
     
     /*  public String ver_estado_actual () {
@@ -121,9 +126,6 @@ public class Item {
         this.equipo_asignado = equipo_asignado;
     }
     
-    public int getId() {
-        return id;
-    }
 
     public String getDescripcion() {
         return descripcion;

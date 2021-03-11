@@ -4,6 +4,7 @@ import java.util.Objects;
 public class Tipo_Item {
     
     public static int cantTipo =1;
+    
     private int id;
     private String nombre;
 

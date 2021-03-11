@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Sistema {
@@ -37,15 +38,17 @@ public class Sistema {
     
     // METODOS PROYECTO:
     
-    public void crear_proyecto (Empleado responsable) {
-        Proyecto proyecto_nuevo = new Proyecto (responsable) ;
+    public void crear_proyecto (Usuario user, String nombre) {
+        Proyecto proyecto_nuevo = new Proyecto (user,nombre) ;
         this.agregar_proyecto(proyecto_nuevo);
+        // Asignar Lider? puede ser otro dialog.
         
     }
             
-    public Proyecto buscar_proyecto (int id) {
-        for (Proyecto proyectoAux : this.proyectos_existentes) {      
-            if (id == proyectoAux.getId()){
+    public Proyecto buscar_proyecto (String nombreBuscado) {
+        // Variable
+        for (Proyecto proyectoAux : this.proyectos_existentes) { 
+            if (nombreBuscado.equals(proyectoAux.getNombre())){
                 return proyectoAux ;
             }  
         }  
@@ -53,11 +56,21 @@ public class Sistema {
     return null;
     }
     
-    public void agregar_proyecto (Proyecto proyectoaux) {
-        if (this.proyectos_existentes.contains(proyectoaux)){
-            System.out.println("El Proyecto ya existe.");
-        }else {
-        this.proyectos_existentes.add(proyectoaux) ;  
+    public ArrayList <Proyecto> buscar_proyecto_porUsuario (Usuario user) {
+        ArrayList <Proyecto> arrayAux = new ArrayList();
+        for (Proyecto i : this.proyectos_existentes) {
+            if (user.getNombreUsuario().equals(i.getUsuario().getNombreUsuario())) {
+               arrayAux.add(i);
+            }
+        }
+        return arrayAux;
+    }
+    
+    private void agregar_proyecto (Proyecto proyectoaux) {
+       if (!(this.proyectos_existentes.contains(proyectoaux))){
+           this.proyectos_existentes.add(proyectoaux) ; 
+           Proyecto.id++;
+           // Se Aumenta el id de clase proyecto.
         }
     }
 
@@ -66,7 +79,6 @@ public class Sistema {
         for (Proyecto i : this.proyectos_existentes) {
             System.out.println(i);
         }
-    
     }    
     
     
@@ -91,7 +103,9 @@ public class Sistema {
         if (this.equipos_existentes.contains(e)){
             System.out.println("El Equipo ya existe.");
         }else {
-        this.equipos_existentes.add(e) ;  
+        this.equipos_existentes.add(e) ;
+        Equipo.id++;
+        // aumenta el id de clase equipo.
         }
     }
     
@@ -140,27 +154,20 @@ public class Sistema {
     }
     
     //METODO CREAR CON PARAMETROS NECESARIOS.
-    public void reportarItem (int id_proyecto,String descripcion, Tipo_Item ti) {
-        Proyecto proyectoAux=this.buscar_proyecto(id_proyecto);
-        if (!(proyectoAux==null)) {
+    public void reportarItem (Proyecto proyectoSeleccionado,String descripcion, Tipo_Item ti) {
+        // Proyecto nunca es nulo porque se mando desde el combo box.""
             if (this.tipoItems_existentes.contains(ti)){
-                proyectoAux.crearItem(descripcion, ti);
+                proyectoSeleccionado.crearItem(descripcion, ti);
                   
             }else {
-                System.out.println("Tipo de item no existe");  
-                // crear tipo de item??
+                System.out.println("Tipo de item no existe");             
                 }
-        
-        }else {
-            System.out.println("Proyecto no encontrado");
-            
-            // crear proyecto si no existe??
-            }
     }
+ 
     
-    // METODO CREAR CON TODOS SUS PARAMETROS.
+    // METODO CREAR CON TODOS SUS PARAMETROS. 
     
-    public void reportarItem2 (int id_proyecto, String descripcion,Tipo_Item tipo, int legajo_responsable,Fecha fechalim,int id_equipo ) {      
+ /*   public void reportarItem2 (int id_proyecto, String descripcion,Tipo_Item tipo, int legajo_responsable,Fecha fechalim,int id_equipo ) {      
         // VERIFICACION DE DATOS
         
         //FALTA VERIFICAR TIPO DE ITEM.
@@ -184,5 +191,14 @@ public class Sistema {
             // crear proyecto si no existe??
             }
     }     
+*/
+    
+    public HashSet<Tipo_Item> getTipoItems_existentes() {
+        return tipoItems_existentes;
+    }
 
+    public HashSet<Proyecto> getProyectos_existentes() {
+        return proyectos_existentes;
+    }
+    
 }

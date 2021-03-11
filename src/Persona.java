@@ -15,4 +15,11 @@ public abstract class Persona {
      
       return Nombre;
     }
+
+    @Override
+    public String toString() {
+        return "Persona: " + "DNI=" + DNI + ", Nombre=" + Nombre;
+    }
+    
+    
 }
